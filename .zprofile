@@ -20,8 +20,17 @@ zstyle ':completion:*:default' menu select=2
 # 補完で大文字にもマッチ
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+
 # prompt
-PROMPT='%n@%m:%F{green}[%B%~%b]%f
+PROMPT='%n@%m:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
 $ '
 RPROMPT=' %F{cyan}[%*]%f'
 # 最後の行だけRPROMPTが残る
