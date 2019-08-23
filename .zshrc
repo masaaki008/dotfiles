@@ -39,9 +39,9 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 
 # prompt
-PROMPT='%n@%m:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
+PROMPT='%F{205}%n@%m%f:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
 $ '
-RPROMPT=' %F{cyan}[%*]%f'
+RPROMPT=' %F{050}[%D{%a %m/%d %T}]%f'
 # 最後の行だけRPROMPTが残る
 setopt transient_rprompt
 
@@ -51,3 +51,8 @@ eval "$(pyenv init -)"
 # alias settings
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
+
+# 色の確認するだけ
+if [ $COL_TEST = 1 ]; then
+	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+fi
