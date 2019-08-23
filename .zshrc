@@ -1,5 +1,5 @@
 # LANG
-export LANG=ja_jp.UTF-8
+export LANG=ja_JP.UTF-8
 
 # 自動補完
 autoload -U compinit
