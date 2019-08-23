@@ -1,3 +1,13 @@
+
+# 色の設定 
+eval `dircolors -b`
+eval `dircolors ~/.dircolors`
+
+autoload colors
+
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # LANG
 export LANG=ja_JP.UTF-8
 
@@ -37,3 +47,7 @@ setopt transient_rprompt
 
 # pyenv なぜかzshenvじゃ通らない
 eval "$(pyenv init -)"
+
+# alias settings
+alias ls="ls --color=auto"
+alias ll="ls --color=auto -la"
