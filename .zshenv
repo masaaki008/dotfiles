@@ -1,5 +1,8 @@
 # 環境変数用
 
+# coreutils適用
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
