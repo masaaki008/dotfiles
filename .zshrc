@@ -39,7 +39,8 @@ zstyle ':vcs_info:*' actionformats '[%b|%a]'
 precmd () { vcs_info }
 
 # prompt
-PROMPT='%F{205}%n@%m%f:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
+PROMPT='
+%F{205}%n@%m%f:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
 $ '
 RPROMPT=' %F{050}[%D{%a %m/%d %T}]%f'
 # 最後の行だけRPROMPTが残る
