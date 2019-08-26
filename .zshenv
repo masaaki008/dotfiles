@@ -1,7 +1,9 @@
 # 環境変数用
 
 # coreutils適用
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+case "$OSTYPE" in
+  darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+esac
 
 # pyenv
 export PYENV_ROOT="$HOME/.pyenv"
