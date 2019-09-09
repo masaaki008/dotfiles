@@ -1,5 +1,10 @@
 
-# 色の設定 
+# coreutils適用
+case "$OSTYPE" in
+  darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+esac
+
+# 色の設定
 eval `dircolors -b`
 eval `dircolors ~/.dircolors`
 
