@@ -1,7 +1,7 @@
 
 # coreutils適用
 case "$OSTYPE" in
-  darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 esac
 
 # 色の設定
@@ -57,8 +57,25 @@ eval "$(pyenv init -)"
 # alias settings
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
+alias spsql="postgres -D /usr/local/var/postgres"
 
 # 色の確認するだけ
-if [ $COL_TEST = 1 ]; then
-	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+# if [ $COL_TEST = 1 ]; then
+# 	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
+# fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/masaaki/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
+        . "/Users/masaaki/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin:$PATH"
+    fi
 fi
+unset __conda_setup
+# <<< conda initialize <<<
+
