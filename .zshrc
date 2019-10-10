@@ -51,9 +51,6 @@ RPROMPT=' %F{050}[%D{%a %m/%d %T}]%f'
 # 最後の行だけRPROMPTが残る
 setopt transient_rprompt
 
-# pyenv なぜかzshenvじゃ通らない
-eval "$(pyenv init -)"
-
 # alias settings
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
@@ -63,6 +60,12 @@ alias spsql="postgres -D /usr/local/var/postgres"
 # if [ $COL_TEST = 1 ]; then
 # 	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 # fi
+
+# ----------env----------------------
+# anyenv
+eval "$(anyenv init -)"
+# pyenv なぜかzshenvじゃ通らない
+eval "$(pyenv init -)"
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
