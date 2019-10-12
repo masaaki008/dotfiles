@@ -58,6 +58,8 @@ alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
 
+alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/shims:/} brew"
+
 # 色の確認するだけ
 # if [ $COL_TEST = 1 ]; then
 # 	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
