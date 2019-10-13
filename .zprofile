@@ -4,4 +4,4 @@ case "$OSTYPE" in
 esac
 
 alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/shims:/} brew"
-alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions:/} brew"
+alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions\/anaconda3-2019/.03\/bin:/} brew"
