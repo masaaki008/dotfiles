@@ -59,6 +59,7 @@ alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
 
 alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/shims:/} brew"
+alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions:/} brew"
 
 # 色の確認するだけ
 # if [ $COL_TEST = 1 ]; then
