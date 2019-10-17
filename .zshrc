@@ -68,6 +68,7 @@ alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions\/anaconda3-2019/
 
 # ----------env----------------------
 # anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 # pyenv なぜかzshenvじゃ通らない
 eval "$(pyenv init -)"
