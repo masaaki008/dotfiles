@@ -73,6 +73,10 @@ eval "$(anyenv init -)"
 # pyenv なぜかzshenvじゃ通らない
 eval "$(pyenv init -)"
 
+# goenv
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
