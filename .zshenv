@@ -9,6 +9,10 @@ esac
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+# gopath
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # anacnda
 export PATH="$PYENV_ROOT/versions/anaconda3-2019.03/bin/:$PATH"
 
