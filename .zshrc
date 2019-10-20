@@ -74,6 +74,8 @@ eval "$(anyenv init -)"
 eval "$(pyenv init -)"
 
 # goenv
+# default GOPATH=%HOME/go/$goversion$
+# export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 
