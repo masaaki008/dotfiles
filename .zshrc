@@ -58,9 +58,6 @@ alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
 
-alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/shims:/} brew"
-alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions\/anaconda3-2019/.03\/bin:/} brew"
-
 # 色の確認するだけ
 # if [ $COL_TEST = 1 ]; then
 # 	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
@@ -70,8 +67,6 @@ alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions\/anaconda3-2019/
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-# pyenv なぜかzshenvじゃ通らない
-eval "$(pyenv init -)"
 
 # goenv
 # default GOPATH=%HOME/go/$goversion$
@@ -85,12 +80,11 @@ __conda_setup="$('/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin/conda' 's
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/Users/masaaki/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
-        . "/Users/masaaki/.pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
+    if [ -f "/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
+        . "/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
     else
-        export PATH="/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin:$PATH"
+        export PATH="/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-

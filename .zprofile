@@ -2,6 +2,3 @@
 case "$OSTYPE" in
   darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 esac
-
-alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/shims:/} brew"
-alias brew="env PATH=${PATH/\/Users\/masaaki\/\.pyenv\/versions\/anaconda3-2019/.03\/bin:/} brew"
