@@ -3,7 +3,7 @@ export PATH="/usr/local/sbin:$PATH"
 
 # coreutils適用
 case "$OSTYPE" in
-    darwin*) export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+    darwin*) export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 esac
 
 # 色の設定
@@ -70,21 +70,11 @@ eval "$(anyenv init -)"
 
 # goenv
 # default GOPATH=%HOME/go/$goversion$
+# export GOENV_DISABLE_GOPATH=1
 # export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
+export GO111MODULE=on
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/Users/masaaki/.pyenv/versions/anaconda3-2019.03/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh" ]; then
-        . "/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/etc/profile.d/conda.sh"
-    else
-        export PATH="/Users/masaaki/.anyenv/envs/pyenv/versions/anaconda3-2019.03/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# poetry
+export PATH="$HOME/.poetry/bin:$PATH"
