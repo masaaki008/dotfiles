@@ -8,7 +8,7 @@ esac
 
 # 色の設定
 eval `dircolors -b`
-eval `dircolors ~/.dircolors`
+eval `dircolors ~/dotfiles/dircolors/dircolors.256dark`
 
 autoload colors
 
@@ -47,7 +47,7 @@ precmd () { vcs_info }
 
 # prompt
 PROMPT='
-%F{205}%n@%m%f:%F{green}[%B%~%b]%f ${vcs_info_msg_0_}
+%F{205}%n@%m%f:%F{046}[%B%~%b]%f ${vcs_info_msg_0_}
 $ '
 RPROMPT=' %F{050}[%D{%a %m/%d %T}]%f'
 # 最後の行だけRPROMPTが残る
@@ -59,9 +59,7 @@ alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
 
 # 色の確認するだけ
-# if [ $COL_TEST = 1 ]; then
-# 	for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
-# fi
+# for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 
 # ----------env----------------------
 # anyenv
