@@ -5,113 +5,59 @@ if &compatible
     set nocompatible
 endif
 
+let g:python3_host_prog = $PYENV_ROOT.'/shims/python'
 let g:dein_path = $HOME.'/.vim/bundles'
 let g:dein_repo_path = '/repos/github.com/Shougo/dein.vim'
+let g:toml_dir = $HOME.'/.config/vim/dein/toml'
+let g:toml = g:toml_dir.'/dein.toml'
+let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/altercation/vim-colors-solarized
 
 if dein#load_state(g:dein_path)
-    call dein#begin(g:dein_path)
-    call dein#add(g:dein_path.g:dein_repo_path)
 
-    " カラーテーマ
-    call dein#add('altercation/vim-colors-solarized')
-    " git操作
-    call dein#add('tpope/vim-fugitive')
-    " git操作可視化
-    call dein#add('airblade/vim-gitgutter')
-    " ディレクトリツリー表示
-    call dein#add('scrooloose/nerdtree')
-    " 複数行コメントアウト
-    call dein#add('tpope/vim-commentary')
-    " ステータスバー
-    call dein#add('vim-airline/vim-airline')
-    " ステータスバーテーマ
-    call dein#add('vim-airline/vim-airline-themes')
-    " アイコン
-    call dein#add('ryanoasis/vim-devicons')
-    " インデント可視化
-    call dein#add('nathanaelkane/vim-indent-guides')
-    " ダブルクォンテーションの補完
-    call dein#add('Townk/vim-autoclose')
-    " 閉じ括弧補完
-    call dein#add('cohama/lexima.vim')
-    " 末尾の全角・半角の空白ハイライト
-    call dein#add('bronson/vim-trailing-whitespace')
+    call dein#begin(g:dein_path)
+
+    call dein#load_toml(g:toml, {'lazy': 0})
+    call dein#load_toml(g:lazy_toml, {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
 endif
 
 filetype plugin indent on
-syntax enable
 
 if dein#check_install()
     call dein#install()
 endif
 
-" カラーテーマ
-set background=dark
-colorscheme solarized
-
 " 文字コード
 set encoding=UTF-8
 
 """""""""""""""""""""""""
-"      vim-airline
+"      ale
 """""""""""""""""""""""""
-let g:airline_theme = 'wombat'                                " テーマ
-let g:airline#extensions#tabline#enabled = 1                  " タブの有効化
-let g:airline#extensions#tabline#buffer_idx_mode = 1          " タブ番号表示
-let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline#extensions#branch#enabled = 0
-nmap <C-p> <Plug>AirlineSelectPrevTab                         " Ctrl+pタブ切替
-nmap <C-n> <Plug>AirlineSelectNextTab                         " Ctrl+nタブ切替
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+" 表示に関する設定
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:airline#extensions#ale#open_lnum_symbol = '('
+let g:airline#extensions#ale#close_lnum_symbol = ')'
+let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+highlight link ALEErrorSign Tag
+highlight link ALEWarningSign StorageClass
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'python': ['flake8'],
+\   'go': ['golint'],
+\}
+" Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-" power-fonts
-let g:airline_powerline_fonts = 1
-set laststatus=2                                              " ステータスバー用に2行開ける
-
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
-
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-
-" ステータスバー表示設定
-let g:airline#extensions#default#layout = [['a', 'b', 'c'], ['x', 'y', 'z']]
-let g:airline_section_b = '%{airline#extensions#branch#get_head()}'
-let g:airline_section_c = '%{airline#parts#readonly()} %t'
-let g:airline_section_x = '%{&filetype}'
-let g:airline_section_z = '%{"unix" == &fileformat ? "LF" : "dos" == &fileformat ? "CRLF" : "CR"} %l:%c %p%%'
+let g:ale_fix_on_save = 1
 
 """""""""""""""""""""""""
 "      インデント
@@ -124,12 +70,6 @@ set expandtab                             "タブ入力を複数の空白に置�
 
 set tabstop=4                             "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
 set shiftwidth=4                          "自動インデントで入る空白数
-
-" vim-indent-guides設定
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 
 " go, cpp, c, h はexpandtab解除
 augroup fileTypeIndent
@@ -154,3 +94,6 @@ set list
 set listchars=tab:▸-,trail:·,eol:¬,extends:»,precedes:«,nbsp:%
 
 set mouse=a                               " マウス設定
+
+" NERDTree 実行
+autocmd VimEnter * execute 'NERDTree'
