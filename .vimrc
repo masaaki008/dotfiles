@@ -46,13 +46,41 @@ let g:ale_sign_warning = ''
 let g:airline#extensions#ale#open_lnum_symbol = '('
 let g:airline#extensions#ale#close_lnum_symbol = ')'
 let g:ale_echo_msg_format = '[%linter%]%code: %%s'
+let g:ale_cpp_gcc_options = '-std=c++17 -Wall'
+let g:ale_c_gcc_options = '-std=c++17 -Wall'
 highlight link ALEErrorSign Tag
 highlight link ALEWarningSign StorageClass
+
+" lint
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
 \   'go': ['golint'],
+\   'c': ['gcc'],
+\   'cpp': ['gcc'],
 \}
+
+let g:ale_fixers = {
+\   'python': ['autopep8', 'black', 'isort'],
+\   'c': ['clang-format'],
+\   'cpp': ['clang-format'],
+\}
+
+" python自動整形
+let g:ale_python_flake8_executable = g:python3_host_prog
+let g:ale_python_flake8_options = '-m flake8'
+let g:ale_python_autopep8_executable = g:python3_host_prog
+let g:ale_python_autopep8_options = '-m autopep8'
+let g:ale_python_isort_executable = g:python3_host_prog
+let g:ale_python_isort_options = '-m isort'
+let g:ale_python_black_executable = g:python3_host_prog
+let g:ale_python_black_options = '-m black'
+
+" c++ c フォーマッター
+let g:ale_c_clangformat_options = '-style="{IndentWidth: 4,AccessModifierOffset: -4,AlwaysBreakTemplateDeclarations: true,Standard: Cpp11,BreakBeforeBraces: Stroustrup, AlignConsecutiveAssignments: true}"'
+
+let g:ale_cpp_clangformat_options = '-style="{IndentWidth: 4,AccessModifierOffset: -4,AlwaysBreakTemplateDeclarations: true,Standard: Cpp11,BreakBeforeBraces: Stroustrup, AlignConsecutiveAssignments: true}"'
+
 " Ctrl + kで次の指摘へ、Ctrl + jで前の指摘へ移動
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
@@ -75,9 +103,7 @@ set shiftwidth=4                          "自動インデントで入る空白�
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab
-    autocmd BufNewFile,BufRead *.cpp setlocal noexpandtab
     autocmd BufNewFile,BufRead *.c setlocal noexpandtab
-    autocmd BufNewFile,BufRead *.h setlocal noexpandtab
 augroup END
 
 """""""""""""""""""""""""

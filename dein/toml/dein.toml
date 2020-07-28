@@ -4,12 +4,29 @@ repo = 'Shougo/dein.vim'
 # 自動補完
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
 hook_add = '''
     let g:deoplete#enable_at_startup = 1
 '''
 
+# python
 [[plugins]]
 repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = ['python']
+
+# c++ c
+[[plugins]]
+repo = 'Shougo/deoplete-clangx'
+on_ft = ['c', 'cpp']
+
+# javascript
+[[plugins]]
+repo = 'wokalski/autocomplete-flow'
+on_ft = ['javascript']
+
+# header
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -133,8 +150,29 @@ repo = 'bronson/vim-trailing-whitespace'
 # go
 [[plugins]]
 repo = 'fatih/vim-go'
+on_ft = ['go']
 hook_add = '''
     let g:go_fmt_command = "goimports"
+    let g:go_template_autocreate = 0
+
+    " LSPに任せる機能をOFFにする
+    let g:go_def_mapping_enabled = 0
+    let g:go_doc_keywordprg_enabled = 0
+'''
+
+# lsp
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+build = 'bash install.sh'
+rev = 'next'
+hook_add = '''
+    set hidden
+    let g:LanguageClient_serverCommands = {
+    \ 'go': ['gopls']
+    \}
+    let g:LanguageClient_loadSettings = 1
+    nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+    nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 '''
 
 # lint
