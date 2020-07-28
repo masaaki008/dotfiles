@@ -160,6 +160,11 @@ hook_add = '''
     let g:go_doc_keywordprg_enabled = 0
 '''
 
+# go debuger
+[[plugins]]
+repo = 'sebdah/vim-delve'
+on_ft = ['go']
+
 # lsp
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
@@ -178,3 +183,12 @@ hook_add = '''
 # lint
 [[plugins]]
 repo = 'w0rp/ale'
+
+# terminal
+[[plugins]]
+repo = 'kassio/neoterm'
+hook_add = '''
+    let g:neoterm_autoscroll=1                 " REPLを自動的に改行
+    let g:neoterm_default_mod='belowright'
+    let g:neoterm_size=20
+'''

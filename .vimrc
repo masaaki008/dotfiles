@@ -120,6 +120,13 @@ set list
 set listchars=tab:▸-,trail:·,eol:¬,extends:»,precedes:«,nbsp:%
 
 set mouse=a                               " マウス設定
+set clipboard+=unnamed                    " クリップボード
+
+"""""""""""""""""""""""""
+"      vim内terminal
+"""""""""""""""""""""""""
+" ECSでcommand mode
+tnoremap <silent> <ESC> <C-\><C-n>
 
 " NERDTree 実行
 autocmd VimEnter * execute 'NERDTree'
