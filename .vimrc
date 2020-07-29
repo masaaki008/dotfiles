@@ -5,7 +5,7 @@ if &compatible
     set nocompatible
 endif
 
-let g:python3_host_prog = $PYENV_ROOT.'/shims/python'
+let g:python3_host_prog = $HOME.'/nvim-python3/bin/python'
 let g:dein_path = $HOME.'/.vim/bundles'
 let g:dein_repo_path = '/repos/github.com/Shougo/dein.vim'
 let g:toml_dir = $HOME.'/.config/vim/dein/toml'
@@ -99,11 +99,10 @@ set expandtab                             "タブ入力を複数の空白に置�
 set tabstop=4                             "タブを含むファイルを開いた際, タブを何文字の空白に変換するか
 set shiftwidth=4                          "自動インデントで入る空白数
 
-" go, cpp, c, h はexpandtab解除
+" go はexpandtab解除
 augroup fileTypeIndent
     autocmd!
     autocmd BufNewFile,BufRead *.go setlocal noexpandtab
-    autocmd BufNewFile,BufRead *.c setlocal noexpandtab
 augroup END
 
 """""""""""""""""""""""""

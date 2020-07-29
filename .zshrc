@@ -57,7 +57,7 @@ setopt transient_rprompt
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
-
+alias vim="nvim"
 # 色の確認するだけ
 # for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 
@@ -76,3 +76,6 @@ export GO111MODULE=on
 
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
+
+# llvm
+export PATH="/usr/local/opt/llvm/bin:$PATH"

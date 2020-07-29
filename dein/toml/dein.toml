@@ -9,24 +9,11 @@ hook_add = '''
     let g:deoplete#enable_at_startup = 1
 '''
 
-# python
-[[plugins]]
-repo = 'deoplete-plugins/deoplete-jedi'
-on_ft = ['python']
-
-# c++ c
-[[plugins]]
-repo = 'Shougo/deoplete-clangx'
-on_ft = ['c', 'cpp']
-
-# javascript
-[[plugins]]
-repo = 'wokalski/autocomplete-flow'
-on_ft = ['javascript']
-
 # header
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+depends = ['deoplete.nvim']
 
 [[plugins]]
 repo = 'roxma/nvim-yarp'
@@ -56,7 +43,7 @@ hook_add = '''
     set laststatus=2                                              " ステータスバー用に2行開ける
 
     if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+        let g:airline_symbols = {}
     endif
 
     " unicode symbols
@@ -127,15 +114,11 @@ hook_add = '''
     let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar', 'unite']
 '''
 
-# ダブルクォンテーションの補完
-[[plugins]]
-repo = 'Townk/vim-autoclose'
-
 # 括弧補完
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-# 閉じ括弧補完
+# 括弧補完
 [[plugins]]
 repo = 'cohama/lexima.vim'
 
@@ -173,7 +156,11 @@ rev = 'next'
 hook_add = '''
     set hidden
     let g:LanguageClient_serverCommands = {
-    \ 'go': ['gopls']
+    \ 'go': ['gopls'],
+    \ 'python': ['~/nvim-python3/bin/pyls'],
+    \ 'javascript': ['~/.anyenv/envs/nodenv/shims/javascript-typescript-stdio'],
+    \ 'cpp': ['clangd'],
+    \ 'c': ['clangd'],
     \}
     let g:LanguageClient_loadSettings = 1
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
