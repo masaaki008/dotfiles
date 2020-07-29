@@ -30,7 +30,8 @@ depends = ['vim-airline/vim-airline-themes']
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-    let g:airline_theme = 'wombat'                                " テーマ
+    let g:rigel_airline = 1
+    let g:airline_theme = 'rigel'                                 " テーマ
     let g:airline#extensions#tabline#enabled = 1                  " タブの有効化
     let g:airline#extensions#tabline#buffer_idx_mode = 1          " タブ番号表示
     let g:airline#extensions#whitespace#mixed_indent_algo = 1

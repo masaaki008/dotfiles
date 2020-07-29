@@ -13,7 +13,7 @@ let g:toml = g:toml_dir.'/dein.toml'
 let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
-set runtimepath+=$HOME/.vim/bundles/repos/github.com/altercation/vim-colors-solarized
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/Rigellute/rigel
 
 if dein#load_state(g:dein_path)
 
