@@ -15,6 +15,8 @@ let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/tomasr/molokai
 
+set rtp+=/usr/local/opt/fzf
+
 if dein#load_state(g:dein_path)
 
     call dein#begin(g:dein_path)
@@ -132,5 +134,6 @@ set clipboard+=unnamed                    " クリップボード
 " ECSでcommand mode
 tnoremap <silent> <ESC> <C-\><C-n>
 
-" NERDTree 実行
-autocmd VimEnter * execute 'NERDTree'
+" NERDTree F12で実行
+" autocmd VimEnter * execute 'NERDTree'
+nnoremap <F12> :NERDTree<CR>

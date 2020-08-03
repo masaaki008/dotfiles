@@ -189,3 +189,7 @@ hook_add = '''
     let g:neoterm_default_mod='belowright'
     let g:neoterm_size=20
 '''
+
+# ファイル検索
+[[plugins]]
+repo = 'junegunn/fzf.vim'
