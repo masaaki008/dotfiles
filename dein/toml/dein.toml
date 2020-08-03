@@ -30,8 +30,7 @@ depends = ['vim-airline/vim-airline-themes']
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 hook_add = '''
-    let g:rigel_airline = 1
-    let g:airline_theme = 'rigel'                                 " テーマ
+    let g:airline_theme = 'murmuro'                                 " テーマ
     let g:airline#extensions#tabline#enabled = 1                  " タブの有効化
     let g:airline#extensions#tabline#buffer_idx_mode = 1          " タブ番号表示
     let g:airline#extensions#whitespace#mixed_indent_algo = 1
@@ -149,6 +148,15 @@ hook_add = '''
 repo = 'sebdah/vim-delve'
 on_ft = ['go']
 
+# rust
+#[[plugins]]
+#repo = 'rust-lang/rust.vim'
+#hook_add = '''
+#    " 保存時フォーマット無効
+#    let g:rustfmt_autosave = 0
+#'''
+#on_ft = ['rust']
+
 # lsp
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
@@ -157,6 +165,7 @@ rev = 'next'
 hook_add = '''
     set hidden
     let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
     \ 'go': ['gopls'],
     \ 'python': ['~/nvim-python3/bin/pyls'],
     \ 'javascript': ['~/.anyenv/envs/nodenv/shims/javascript-typescript-stdio'],

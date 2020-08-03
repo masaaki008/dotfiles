@@ -1,8 +1,18 @@
 # カラーテーマ
+#[[plugins]]
+#repo = 'Rigellute/rigel'
+# hook_add = '''
+#    set termguicolors
+#    syntax enable
+#    colorscheme rigel
+#'''
+
+# カラーテーマ
 [[plugins]]
-repo = 'Rigellute/rigel'
+repo = 'tomasr/molokai'
 hook_add = '''
-    set termguicolors
     syntax enable
-    colorscheme rigel
+    colorscheme molokai
+    let g:molokai_original = 1
+    set t_Co=256
 '''

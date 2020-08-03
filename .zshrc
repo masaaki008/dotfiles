@@ -8,7 +8,8 @@ esac
 
 # 色の設定
 eval `dircolors -b`
-eval `dircolors ~/dotfiles/dircolors/dircolors.256dark`
+# eval `dircolors ~/dotfiles/dircolors/dircolors.256dark`
+eval `dircolors ~/dotfiles/dircolors/.dircolors`
 
 autoload colors
 
@@ -79,3 +80,6 @@ export PATH="$HOME/.poetry/bin:$PATH"
 
 # llvm
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# rust
+export PATH="$HOME/.cargo/bin:$PATH"

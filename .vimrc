@@ -13,7 +13,7 @@ let g:toml = g:toml_dir.'/dein.toml'
 let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
-set runtimepath+=$HOME/.vim/bundles/repos/github.com/Rigellute/rigel
+set runtimepath+=$HOME/.vim/bundles/repos/github.com/tomasr/molokai
 
 if dein#load_state(g:dein_path)
 
@@ -56,12 +56,14 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'python': ['flake8'],
 \   'go': ['golint'],
+\   'rust': ['clippy'],
 \   'c': ['gcc'],
 \   'cpp': ['gcc'],
 \}
 
 let g:ale_fixers = {
 \   'python': ['autopep8', 'black', 'isort'],
+\   'rust': ['rustfmt'],
 \   'c': ['clang-format'],
 \   'cpp': ['clang-format'],
 \}
@@ -75,6 +77,9 @@ let g:ale_python_isort_executable = g:python3_host_prog
 let g:ale_python_isort_options = '-m isort'
 let g:ale_python_black_executable = g:python3_host_prog
 let g:ale_python_black_options = '-m black'
+
+" rust自動整形
+let g:ale_rustfmt_executable = 'rustfmt'
 
 " c++ c フォーマッター
 let g:ale_c_clangformat_options = '-style="{IndentWidth: 4,AccessModifierOffset: -4,AlwaysBreakTemplateDeclarations: true,Standard: Cpp11,BreakBeforeBraces: Stroustrup, AlignConsecutiveAssignments: true}"'
