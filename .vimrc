@@ -123,7 +123,10 @@ set wildmenu                               " コマンドライン補完
 
 " 空白可視化
 set list
-set listchars=tab:▸-,trail:·,eol:¬,extends:»,precedes:«,nbsp:%
+set listchars=tab:→·,space:·,trail:·,eol:¬,extends:»,precedes:«,nbsp:%
+
+hi NonText    ctermbg=None ctermfg=31 guibg=NONE guifg=None
+hi SpecialKey ctermbg=None ctermfg=59 guibg=NONE guifg=None
 
 set mouse=a                               " マウス設定
 set clipboard+=unnamed                    " クリップボード
@@ -134,6 +137,8 @@ set clipboard+=unnamed                    " クリップボード
 " ECSでcommand mode
 tnoremap <silent> <ESC> <C-\><C-n>
 
-" NERDTree F12で実行
+" NERDTree Ctrl-nで実行
 " autocmd VimEnter * execute 'NERDTree'
-nnoremap <F12> :NERDTree<CR>
+nnoremap <C-n> :NERDTree<CR>
+" 保存
+nnoremap <C-s> :w<CR>

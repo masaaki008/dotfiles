@@ -59,6 +59,7 @@ alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
 alias spsql="postgres -D /usr/local/var/postgres"
 alias vim="nvim"
+alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew' 
 # 色の確認するだけ
 # for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
 
