@@ -7,25 +7,32 @@ endif
 
 let g:python3_host_prog = $HOME.'/nvim-python3/bin/python'
 let g:dein_path = $HOME.'/.vim/bundles'
-let g:dein_repo_path = '/repos/github.com/Shougo/dein.vim'
+let g:dein_repo_path = g:dein_path.'/repos/github.com/Shougo/dein.vim'
+
+" deinがインストールされていなければインストール
+if !isdirectory(g:dein_repo_path)
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+
 let g:toml_dir = $HOME.'/.config/vim/dein/toml'
 let g:toml = g:toml_dir.'/dein.toml'
 let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/tomasr/molokai
-
 set rtp+=/usr/local/opt/fzf
 
 if dein#load_state(g:dein_path)
-
     call dein#begin(g:dein_path)
-
     call dein#load_toml(g:toml, {'lazy': 0})
     call dein#load_toml(g:lazy_toml, {'lazy': 1})
-
     call dein#end()
     call dein#save_state()
+endif
+
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
 endif
 
 filetype plugin indent on
