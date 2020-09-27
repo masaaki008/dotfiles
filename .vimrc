@@ -134,6 +134,10 @@ hi SpecialKey ctermbg=None ctermfg=59 guibg=NONE guifg=None
 set mouse=a                               " マウス設定
 set clipboard+=unnamed                    " クリップボード
 
+" TabキーとShift-Tabキーで画面スクロール
+nnoremap <Tab> <C-d>
+nnoremap <S-Tab> <C-u>
+
 """""""""""""""""""""""""
 "      vim内terminal
 """""""""""""""""""""""""

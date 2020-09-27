@@ -36,7 +36,7 @@ hook_add = '''
     let g:airline#extensions#whitespace#mixed_indent_algo = 1
     let g:airline#extensions#branch#enabled = 0
     nmap <C-p> <Plug>AirlineSelectPrevTab                         " Ctrl+pタブ切替
-    nmap <C-n> <Plug>AirlineSelectNextTab                         " Ctrl+nタブ切替
+    nmap <C-m> <Plug>AirlineSelectNextTab                         " Ctrl+mタブ切替
 
     " power-fonts
     let g:airline_powerline_fonts = 1

@@ -16,4 +16,4 @@ mkdir -p ~/.config/nvim
 mkdir -p ~/.vim/bundles
 mkdir -p ~/.config/vim
 ln -fns ${SCRIPT_DIR_PATH}/.vimrc ~/.config/nvim/init.vim
-ln -fns ${SCRIPT_DIR_PATH}/dein ~/.config/vim/dein
+ln -fns ${SCRIPT_DIR_PATH}/dein ~/.config/vim
