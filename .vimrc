@@ -30,15 +30,11 @@ if dein#load_state(g:dein_path)
     call dein#save_state()
 endif
 
+filetype plugin indent on
+
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()
   call dein#install()
-endif
-
-filetype plugin indent on
-
-if dein#check_install()
-    call dein#install()
 endif
 
 " 文字コード
