@@ -67,6 +67,9 @@ alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# pyanv
+alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
+
 # goenv
 # default GOPATH=%HOME/go/$goversion$
 # export GOENV_DISABLE_GOPATH=1
