@@ -37,6 +37,7 @@ hook_add = '''
     let g:airline#extensions#branch#enabled = 0
     nmap <C-p> <Plug>AirlineSelectPrevTab                         " Ctrl+pタブ切替
     nmap <C-m> <Plug>AirlineSelectNextTab                         " Ctrl+mタブ切替
+    nmap <C-b> :bdelete<CR>                                       " タブを閉じる
 
     " power-fonts
     let g:airline_powerline_fonts = 1
