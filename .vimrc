@@ -11,7 +11,7 @@ let g:dein_repo_path = g:dein_path.'/repos/github.com/Shougo/dein.vim'
 
 " deinがインストールされていなければインストール
 if !isdirectory(g:dein_repo_path)
-    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(g:dein_repo_path))
 endif
 
 let g:toml_dir = $HOME.'/.config/vim/dein/toml'
