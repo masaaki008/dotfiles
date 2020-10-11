@@ -1,11 +1,14 @@
 
 export PATH="/usr/local/sbin:$PATH"
 
-case "$OSTYPE" in 
+case "$OSTYPE" in
     darwin*)
         export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
         alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
-    linux*) [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        ;;
+    linux*)
+        [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+        ;;
 esac
 
 # 色の設定
@@ -85,4 +88,3 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
-
