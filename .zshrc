@@ -4,7 +4,6 @@ export PATH="/usr/local/sbin:$PATH"
 case "$OSTYPE" in
     darwin*)
         export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-        alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
         ;;
     linux*)
         [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -30,7 +29,6 @@ compinit
 # HISTORY
 # 他のターミナルとヒストリーの共有
 setopt share_history
-
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -62,7 +60,7 @@ setopt transient_rprompt
 alias ls="ls --color=auto"
 alias ll="ls --color=auto -la"
 alias vim="nvim"
-alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
+alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew"
 
 # 色の確認するだけ
 # for c in {000..255}; do echo -n "\e[38;5;${c}m $c" ; [ $(($c%16)) -eq 15 ] && echo;done;echo
@@ -72,12 +70,17 @@ alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
 
+# pyenv
+case "$OSTYPE" in
+    darwin*) alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
+esac
+
 # goenv
 # default GOPATH=%HOME/go/$goversion$
 # export GOENV_DISABLE_GOPATH=1
 # export GOPATH=$HOME/go
-export GOBIN=$GOPATH/bin
-export PATH=$PATH:$GOPATH/bin
+export GOBIN="$GOPATH/bin"
+export PATH="$PATH:$GOPATH/bin"
 export GO111MODULE=on
 
 # poetry
