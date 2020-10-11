@@ -21,7 +21,6 @@ let g:lazy_toml = g:toml_dir.'/dein_lazy.toml'
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/Shougo/dein.vim
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/tomasr/molokai
 set runtimepath+=$HOME/.vim/bundles/repos/github.com/kassio/neoterm
-set rtp+=/usr/local/opt/fzf
 
 if dein#load_state(g:dein_path)
     call dein#begin(g:dein_path)
