@@ -6,6 +6,11 @@ case "$OSTYPE" in
     darwin*) export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 esac
 
+# fzf適用
+case "$OSTYPE" in
+    linux*) [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+esac
+
 # 色の設定
 eval `dircolors -b`
 eval `dircolors ~/.dircolors`
@@ -86,3 +91,4 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
