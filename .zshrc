@@ -1,13 +1,10 @@
 
 export PATH="/usr/local/sbin:$PATH"
 
-# coreutils適用
-case "$OSTYPE" in
-    darwin*) export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-esac
-
-# fzf適用
-case "$OSTYPE" in
+case "$OSTYPE" in 
+    darwin*)
+        export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+        alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
     linux*) [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 esac
 
@@ -71,9 +68,6 @@ alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-
-# pyanv
-alias pyenv="SDKROOT=$(xcrun --show-sdk-path) pyenv"
 
 # goenv
 # default GOPATH=%HOME/go/$goversion$
