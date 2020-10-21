@@ -186,6 +186,7 @@ hook_add = '''
     \ 'javascript': ['~/.anyenv/envs/nodenv/shims/javascript-typescript-stdio'],
     \ 'cpp': ['clangd'],
     \ 'c': ['clangd'],
+    \ 'vue': ['~/.anyenv/envs/nodenv/shims/vls', '~/.anyenv/envs/nodenv/shims/javascript-typescript-stdio'],
     \}
     let g:LanguageClient_loadSettings = 1
     nnoremap <silent> lh :call LanguageClient#textDocument_hover()<CR>
