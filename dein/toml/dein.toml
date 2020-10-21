@@ -16,6 +16,17 @@ on_ft = ['c', 'cpp']
 depends = ['deoplete.nvim']
 
 [[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['html', 'css']
+hook_add = '''
+    let g:user_emmet_settings = {
+    \   'variables': {
+    \       'lang': "ja"
+    \   }
+    \}
+'''
+
+[[plugins]]
 repo = 'roxma/nvim-yarp'
 
 [[plugins]]
