@@ -172,6 +172,16 @@ on_ft = ['go']
 #'''
 #on_ft = ['rust']
 
+# markdown
+[[plugins]]
+repo = 'previm/previm'
+on_ft = ['md', 'markdown']
+
+# markdownテーブル生成
+[[plugins]]
+repo = 'mattn/vim-maketable'
+on_ft = ['md', 'markdown']
+
 # lsp
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
