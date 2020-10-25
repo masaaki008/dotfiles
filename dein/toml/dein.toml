@@ -176,6 +176,11 @@ on_ft = ['go']
 [[plugins]]
 repo = 'previm/previm'
 on_ft = ['md', 'markdown']
+hook_add = '''
+    let g:previm_open_cmd = 'open -a Google\ Chrome'
+    let g:previm_enable_realtime = 1
+    let g:previm_show_header = 0
+'''
 
 # markdownテーブル生成
 [[plugins]]
@@ -224,3 +229,4 @@ build = './install --all'
 # ファイル検索
 [[plugins]]
 repo = 'junegunn/fzf.vim'
+
