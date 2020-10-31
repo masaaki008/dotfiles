@@ -9,6 +9,11 @@ hook_add = '''
     let g:deoplete#enable_at_startup = 1
 '''
 
+[[plugins]]
+repo = 'deoplete-plugins/deoplete-jedi'
+on_ft = ['python']
+depends = ['deoplete.nvim']
+
 # header
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
@@ -175,7 +180,6 @@ on_ft = ['go']
 # markdown
 [[plugins]]
 repo = 'previm/previm'
-on_ft = ['md', 'markdown']
 hook_add = '''
     let g:previm_open_cmd = 'open -a Google\ Chrome'
     let g:previm_enable_realtime = 1
