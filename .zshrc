@@ -91,3 +91,23 @@ export PATH="/usr/local/opt/llvm/bin:$PATH"
 
 # rust
 export PATH="$HOME/.cargo/bin:$PATH"
+
+
+# git
+function gituser-private() {
+    git config user.name "Masaaki008"
+    git config user.email "masaaki.nakamura.tech@gmail.com"
+    git config --list
+}
+
+function gituser-company() {
+    git config user.name "nakamura-ma-tsone"
+    git config user.email "nakamura-ma@tsone.co.jp"
+    git config --list
+}
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '$HOME/google-cloud-sdk/path.zsh.inc' ]; then . '$HOME/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '$HOME/google-cloud-sdk/completion.zsh.inc' ]; then . '$HOME/google-cloud-sdk/completion.zsh.inc'; fi
